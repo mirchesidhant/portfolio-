@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gayatri Traders | Paints, Cement, Steel & Hardware</title>
+  <meta name="description" content="Gayatri Traders - Paints, cement, steel and hardware products for home construction, renovation and painting needs.">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:#f7f7f7;color:#222;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.08)}
+    .navbar{max-width:1200px;margin:auto;padding:15px 25px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:25px;font-weight:800;color:#e31e24}.logo span{color:#222}
+    .nav-links{display:flex;gap:30px;list-style:none}.nav-links a{font-weight:600;transition:.3s}.nav-links a:hover{color:#e31e24}
+    .menu-btn{display:none;font-size:28px;cursor:pointer}
+    .hero{min-height:500px;display:flex;align-items:center;background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),url("https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center}
+    .hero-content{max-width:1200px;width:100%;margin:auto;padding:70px 25px;color:#fff}
+    .hero-content h1{font-size:clamp(38px,6vw,65px);max-width:750px;line-height:1.1;margin-bottom:20px}
+    .hero-content p{max-width:650px;font-size:19px;margin-bottom:30px;color:#eee}
+    .hero-buttons{display:flex;gap:15px;flex-wrap:wrap}.btn{display:inline-block;padding:14px 25px;border-radius:7px;font-weight:bold;transition:.3s}
+    .primary-btn{background:#e31e24;color:#fff}.primary-btn:hover{background:#b9151a;transform:translateY(-2px)}
+    .secondary-btn{background:#fff;color:#222}.secondary-btn:hover{background:#eee}
+    .section{max-width:1200px;margin:auto;padding:70px 25px}.section-title{text-align:center;margin-bottom:45px}
+    .section-title h2{font-size:38px;margin-bottom:10px}.section-title p{color:#666}
+    .filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:25px}
+    .filter-btn{border:none;padding:11px 20px;border-radius:25px;background:#eee;cursor:pointer;font-weight:600;transition:.3s}
+    .filter-btn:hover,.filter-btn.active{background:#e31e24;color:#fff}
+    .search-box{max-width:500px;margin:0 auto 35px}.search-box input{width:100%;padding:15px 18px;border:1px solid #ddd;border-radius:8px;outline:none;font-size:16px}
+    .search-box input:focus{border-color:#e31e24}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+    .product-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:.3s}
+    .product-card:hover{transform:translateY(-7px);box-shadow:0 12px 30px rgba(0,0,0,.15)}
+    .product-image{height:210px;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover;transition:.4s}
+    .product-card:hover img{transform:scale(1.07)}
+    .product-info{padding:25px}.category{display:inline-block;font-size:12px;background:#ffe5e5;color:#d71920;padding:5px 10px;border-radius:20px;font-weight:bold;margin-bottom:12px}
+    .product-info h3{font-size:22px;margin-bottom:10px}.product-info p{color:#666;margin-bottom:20px}
+    .product-buttons{display:flex;gap:10px}.enquire-btn{flex:1;text-align:center;padding:11px;background:#e31e24;color:#fff;border-radius:6px;font-weight:bold;border:none;cursor:pointer}
+    .enquire-btn:hover{background:#b9151a}
+    .why-section{background:#fff}.features{max-width:1200px;margin:auto;padding:70px 25px;display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+    .feature{text-align:center;padding:30px 20px;border-radius:12px;background:#f7f7f7}.feature-icon{font-size:42px;margin-bottom:15px}.feature h3{margin-bottom:10px}.feature p{color:#666}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about-image img{width:100%;border-radius:15px;display:block}
+    .about-content h2{font-size:38px;margin-bottom:20px}.about-content p{color:#666;margin-bottom:20px}.about-list{list-style:none}.about-list li{margin-bottom:12px;font-weight:600}
+    .contact-section{background:#111;color:#fff}.contact-grid{max-width:1200px;margin:auto;padding:70px 25px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    .contact-info h2{font-size:38px;margin-bottom:20px}.contact-info p{color:#ccc;margin-bottom:15px}.contact-details{margin-top:25px}.contact-details div{margin-bottom:15px}
+    .contact-form{background:#fff;padding:30px;border-radius:12px;color:#222}.contact-form input,.contact-form textarea{width:100%;padding:13px;margin-bottom:15px;border:1px solid #ddd;border-radius:6px;outline:none}
+    .contact-form textarea{height:120px;resize:vertical}.contact-form button{width:100%;padding:14px;border:none;background:#e31e24;color:#fff;border-radius:6px;font-weight:bold;cursor:pointer;font-size:16px}
+    footer{background:#080808;color:#aaa;text-align:center;padding:25px}footer strong{color:#fff}
+    .whatsapp{position:fixed;right:20px;bottom:20px;width:58px;height:58px;display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;border-radius:50%;font-size:28px;box-shadow:0 5px 20px rgba(0,0,0,.25);z-index:999}
+    .whatsapp:hover{transform:scale(1.08)}
+    .no-results{text-align:center;color:#666;grid-column:1/-1;padding:30px;display:none}
+    @media(max-width:900px){
+      .product-grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:650px){
+      .navbar{padding:15px 20px}.menu-btn{display:block}
+      .nav-links{position:absolute;top:65px;left:0;width:100%;background:#fff;display:none;flex-direction:column;padding:20px;box-shadow:0 5px 15px rgba(0,0,0,.1)}
+      .nav-links.show{display:flex}.hero{min-height:550px}.hero-content{padding:50px 20px}.hero-content p{font-size:16px}
+      .section{padding:55px 20px}.section-title h2{font-size:30px}.product-grid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr;padding:55px 20px}.contact-grid{padding:55px 20px}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav class="navbar">
+    <div class="logo">Gayatri <span>Traders</span></div>
+    <div class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#products" onclick="closeMenu()">Products</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Quality Products for Every Project</h1>
+    <p>Paints, cement, steel and hardware products for your home, construction and renovation needs.</p>
+    <div class="hero-buttons">
+      <a href="#products" class="btn primary-btn">View Products</a>
+      <a href="#contact" class="btn secondary-btn">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="section-title">
+    <h2>Our Products</h2>
+    <p>Quality materials and products for construction, painting and home improvement.</p>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search products..." oninput="searchProducts()" aria-label="Search products">
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('paint', this)">Paints</button>
+    <button class="filter-btn" onclick="filterProducts('cement', this)">Cement</button>
+    <button class="filter-btn" onclick="filterProducts('steel', this)">Steel</button>
+    <button class="filter-btn" onclick="filterProducts('hardware', this)">Hardware</button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <div class="product-card" data-category="paint">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80" alt="Paints"></div>
+      <div class="product-info">
+        <span class="category">PAINTS</span>
+        <h3>Paints, Primers & Finishes</h3>
+        <p>Interior and exterior paints, primers, emulsions and finishes for beautiful and durable results.</p>
+        <div class="product-buttons"><button class="enquire-btn" onclick="enquire('Paints, Primers & Finishes')">Enquire Now</button></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="paint">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="Paint brushes and rollers"></div>
+      <div class="product-info">
+        <span class="category">PAINT ACCESSORIES</span>
+        <h3>Brushes & Rollers</h3>
+        <p>Paint brushes, rollers, trays and accessories for professional and home painting work.</p>
+        <div class="product-buttons"><button class="enquire-btn" onclick="enquire('Brushes & Rollers')">Enquire Now</button></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="paint">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?auto=format&fit=crop&w=800&q=80" alt="Wall care products"></div>
+      <div class="product-info">
+        <span class="category">WALL CARE</span>
+        <h3>Wall Care Products</h3>
+        <p>Surface preparation, crack repair, smooth finishing and wall protection solutions.</p>
+        <div class="product-buttons"><button class="enquire-btn" onclick="enquire('Wall Care Products')">Enquire Now</button></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="cement">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=800&q=80" alt="Cement"></div>
+      <div class="product-info">
+        <span class="category">CEMENT</span>
+        <h3>UltraTech Cement</h3>
+        <p>Cement products for residential, commercial and construction requirements.</p>
+        <div class="product-buttons"><button class="enquire-btn" onclick="enquire('UltraTech Cement')">Enquire Now</button></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="steel">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Steel"></div>
+      <div class="product-info">
+        <span class="category">STEEL</span>
+        <h3>Rajuri Steel</h3>
+        <p>Steel products suitable for construction and structural requirements.</p>
+        <div class="product-buttons"><button class="enquire-btn" onclick="enquire('Rajuri Steel')">Enquire Now</button></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="hardware">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80" alt="Hardware equipment"></div>
+      <div class="product-info">
+        <span class="category">HARDWARE</span>
+        <h3>Hardware Equipment</h3>
+        <p>Essential hardware tools and accessories for construction, maintenance and renovation.</p>
+        <div class="product-buttons"><button class="enquire-btn" onclick="enquire('Hardware Equipment')">Enquire Now</button></div>
+      </div>
+    </div>
+
+    <div class="no-results" id="noResults">No products found. Try another search.</div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="features">
+    <div class="feature"><div class="feature-icon">⭐</div><h3>Quality Products</h3><p>Products selected for reliable performance.</p></div>
+    <div class="feature"><div class="feature-icon">💰</div><h3>Competitive Prices</h3><p>Value-focused pricing for your requirements.</p></div>
+    <div class="feature"><div class="feature-icon">🤝</div><h3>Trusted Service</h3><p>Friendly assistance from product selection to purchase.</p></div>
+    <div class="feature"><div class="feature-icon">🚚</div><h3>Local Convenience</h3><p>Convenient access to construction and painting materials.</p></div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="about">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Construction materials">
+    </div>
+    <div class="about-content">
+      <h2>About Gayatri Traders</h2>
+      <p>Gayatri Traders provides quality products for painting, construction and home improvement requirements.</p>
+      <p>From paints and wall-care products to cement, steel and hardware equipment, we aim to make your project easier by bringing essential products together.</p>
+      <ul class="about-list">
+        <li>✔ Paints & Wall Care</li>
+        <li>✔ UltraTech Cement</li>
+        <li>✔ Rajuri Steel</li>
+        <li>✔ Hardware Equipment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Get In Touch</h2>
+      <p>Looking for paints, cement, steel or hardware? Contact us for product availability and enquiries.</p>
+      <div class="contact-details">
+        <div>📍 <strong>Location:</strong> Kamalnagar, Bidar, Karnataka</div>
+        <div>📞 <strong>Phone:</strong> +91 97314 98054</div>
+        <div>🕐 <strong>Business Hours:</strong> 8:30 AM – 8:00 PM</div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <input type="text" id="customerName" placeholder="Your Name">
+      <input type="tel" id="customerPhone" placeholder="Your Phone Number">
+      <textarea id="customerMessage" placeholder="What product are you looking for?"></textarea>
+      <button onclick="sendWhatsApp()">Send Enquiry on WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> <strong>Gayatri Traders</strong>. All Rights Reserved.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919731498054" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">☎</a>
+
+<script>
+  // IMPORTANT: Replace this with your real WhatsApp number.
+  // Use country code, without +, spaces or dashes.
+  const BUSINESS_WHATSAPP = "919731498054";
+
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+
+  function closeMenu() {
+    document.getElementById("navLinks").classList.remove("show");
+  }
+
+  function filterProducts(category, button) {
+    document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const search = document.getElementById("searchInput").value.toLowerCase().trim();
+    let visible = 0;
+
+    document.querySelectorAll(".product-card").forEach(product => {
+      const matchesCategory = category === "all" || product.dataset.category === category;
+      const matchesSearch = product.innerText.toLowerCase().includes(search);
+      const show = matchesCategory && matchesSearch;
+
+      product.style.display = show ? "block" : "none";
+      if (show) visible++;
+    });
+
+    document.getElementById("noResults").style.display = visible ? "none" : "block";
+  }
+
+  function searchProducts() {
+    const search = document.getElementById("searchInput").value.toLowerCase().trim();
+    const activeButton = document.querySelector(".filter-btn.active");
+    const category = activeButton ? activeButton.textContent.toLowerCase() : "all";
+
+    const categoryMap = {
+      all: "all",
+      paints: "paint",
+      cement: "cement",
+      steel: "steel",
+      hardware: "hardware"
+    };
+
+    const selectedCategory = categoryMap[category] || "all";
+    let visible = 0;
+
+    document.querySelectorAll(".product-card").forEach(product => {
+      const matchesCategory = selectedCategory === "all" || product.dataset.category === selectedCategory;
+      const matchesSearch = product.innerText.toLowerCase().includes(search);
+      const show = matchesCategory && matchesSearch;
+
+      product.style.display = show ? "block" : "none";
+      if (show) visible++;
+    });
+
+    document.getElementById("noResults").style.display = visible ? "none" : "block";
+  }
+
+  function enquire(productName) {
+    const message = `Hello Gayatri Traders,\n\nI am interested in: ${productName}\n\nPlease share the price and availability.`;
+    window.open(`https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(message)}`, "_blank");
+  }
+
+  function sendWhatsApp() {
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const message = document.getElementById("customerMessage").value.trim();
+
+    if (!name || !phone || !message) {
+      alert("Please fill all the fields.");
+      return;
+    }
+
+    const whatsappMessage =
+      `Hello Gayatri Traders,\n\nName: ${name}\nPhone: ${phone}\nEnquiry: ${message}`;
+
+    window.open(
+      `https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(whatsappMessage)}`,
+      "_blank"
+    );
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
